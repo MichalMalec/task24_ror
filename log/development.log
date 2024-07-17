@@ -1,0 +1,310 @@
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `performance_task_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `performance_task_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS `companies` CASCADE[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE `companies` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `employee_count` int, `industry` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 ENGINE=InnoDB ROW_FORMAT=DYNAMIC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS `deals` CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE `deals` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `amount` int, `status` varchar(255), `company_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_deals_on_company_id` (`company_id`)) DEFAULT CHARSET=utf8mb4 ENGINE=InnoDB ROW_FORMAT=DYNAMIC[0m
+  [1m[35m (11.0ms)[0m  [1m[35mALTER TABLE `deals` ADD CONSTRAINT `fk_rails_54fedd9a8b`
+FOREIGN KEY (`company_id`)
+  REFERENCES `companies` (`id`)
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20240122203751)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20240122175845);
+
+[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2024-07-17 10:55:27.919748', '2024-07-17 10:55:27.919748')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('schema_sha1', '9ecfb12367356a2c528811f78db7b7f470fdab0a', '2024-07-17 10:55:27.925285', '2024-07-17 10:55:27.925285')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS `companies` CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE `companies` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `employee_count` int, `industry` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 ENGINE=InnoDB ROW_FORMAT=DYNAMIC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS `deals` CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE `deals` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `amount` int, `status` varchar(255), `company_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_deals_on_company_id` (`company_id`)) DEFAULT CHARSET=utf8mb4 ENGINE=InnoDB ROW_FORMAT=DYNAMIC[0m
+  [1m[35m (6.1ms)[0m  [1m[35mALTER TABLE `deals` ADD CONSTRAINT `fk_rails_54fedd9a8b`
+FOREIGN KEY (`company_id`)
+  REFERENCES `companies` (`id`)
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20240122203751)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20240122175845);
+
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2024-07-17 10:55:27.950498', '2024-07-17 10:55:27.950498')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE `ar_internal_metadata` SET `ar_internal_metadata`.`value` = 'test', `ar_internal_metadata`.`updated_at` = '2024-07-17 10:55:27.953335' WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('schema_sha1', '9ecfb12367356a2c528811f78db7b7f470fdab0a', '2024-07-17 10:55:27.956079', '2024-07-17 10:55:27.956079')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.4ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Predovic, Towne and Volkman', 944, 'Civil Engineering', '2024-07-17 10:55:28.078215', '2024-07-17 10:55:28.078215')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.1ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Rempel Inc', 630, 'Shipbuilding', '2024-07-17 10:55:28.081161', '2024-07-17 10:55:28.081161')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.1ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Durgan-Reinger', 681, 'Information Services', '2024-07-17 10:55:28.082749', '2024-07-17 10:55:28.082749')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.1ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Waelchi LLC', 19, 'Semiconductors', '2024-07-17 10:55:28.084251', '2024-07-17 10:55:28.084251')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.1ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Witting, Braun and Russel', 291, 'Investment Management', '2024-07-17 10:55:28.085759', '2024-07-17 10:55:28.085759')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.1ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Block-Mitchell', 646, 'Human Resources', '2024-07-17 10:55:28.087264', '2024-07-17 10:55:28.087264')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.1ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Zieme-Von', 223, 'Cosmetics', '2024-07-17 10:55:28.088700', '2024-07-17 10:55:28.088700')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.1ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Yost Group', 889, 'Cosmetics', '2024-07-17 10:55:28.090168', '2024-07-17 10:55:28.090168')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.1ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Braun Group', 592, 'Airlines / Aviation', '2024-07-17 10:55:28.091673', '2024-07-17 10:55:28.091673')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Create (0.1ms)[0m  [1m[32mINSERT INTO `companies` (`name`, `employee_count`, `industry`, `created_at`, `updated_at`) VALUES ('Rosenbaum and Sons', 950, 'Retail', '2024-07-17 10:55:28.093246', '2024-07-17 10:55:28.093246')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 6 LIMIT 1[0m
+  [1m[36mDeal Create (0.4ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 0', 842, 'lost', 6, '2024-07-17 10:55:28.108643', '2024-07-17 10:55:28.108643')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 1', 997, 'lost', 2, '2024-07-17 10:55:28.111749', '2024-07-17 10:55:28.111749')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 4 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 2', 758, 'pending', 4, '2024-07-17 10:55:28.114369', '2024-07-17 10:55:28.114369')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 4 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 3', 412, 'pending', 4, '2024-07-17 10:55:28.117031', '2024-07-17 10:55:28.117031')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 10 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 4', 677, 'won', 10, '2024-07-17 10:55:28.119584', '2024-07-17 10:55:28.119584')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 7 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 5', 693, 'won', 7, '2024-07-17 10:55:28.122223', '2024-07-17 10:55:28.122223')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 6', 885, 'pending', 2, '2024-07-17 10:55:28.131434', '2024-07-17 10:55:28.131434')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 4 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 7', 874, 'won', 4, '2024-07-17 10:55:28.134387', '2024-07-17 10:55:28.134387')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 3 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 8', 114, 'won', 3, '2024-07-17 10:55:28.137225', '2024-07-17 10:55:28.137225')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 8 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 9', 645, 'lost', 8, '2024-07-17 10:55:28.140034', '2024-07-17 10:55:28.140034')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 10 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 10', 703, 'lost', 10, '2024-07-17 10:55:28.142685', '2024-07-17 10:55:28.142685')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 9 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 11', 145, 'pending', 9, '2024-07-17 10:55:28.145170', '2024-07-17 10:55:28.145170')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 10 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 12', 710, 'pending', 10, '2024-07-17 10:55:28.147715', '2024-07-17 10:55:28.147715')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 6 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 13', 733, 'won', 6, '2024-07-17 10:55:28.150215', '2024-07-17 10:55:28.150215')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 8 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 14', 515, 'lost', 8, '2024-07-17 10:55:28.152741', '2024-07-17 10:55:28.152741')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 3 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 15', 914, 'won', 3, '2024-07-17 10:55:28.155091', '2024-07-17 10:55:28.155091')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 1 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 16', 979, 'pending', 1, '2024-07-17 10:55:28.157599', '2024-07-17 10:55:28.157599')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 3 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 17', 921, 'lost', 3, '2024-07-17 10:55:28.159973', '2024-07-17 10:55:28.159973')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 6 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 18', 114, 'lost', 6, '2024-07-17 10:55:28.163141', '2024-07-17 10:55:28.163141')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 8 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 19', 514, 'won', 8, '2024-07-17 10:55:28.166085', '2024-07-17 10:55:28.166085')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 9 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 20', 812, 'pending', 9, '2024-07-17 10:55:28.168447', '2024-07-17 10:55:28.168447')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 3 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 21', 194, 'lost', 3, '2024-07-17 10:55:28.171119', '2024-07-17 10:55:28.171119')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 4 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 22', 785, 'lost', 4, '2024-07-17 10:55:28.173988', '2024-07-17 10:55:28.173988')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 23', 808, 'won', 2, '2024-07-17 10:55:28.176554', '2024-07-17 10:55:28.176554')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 3 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 24', 177, 'won', 3, '2024-07-17 10:55:28.179021', '2024-07-17 10:55:28.179021')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 4 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 25', 296, 'won', 4, '2024-07-17 10:55:28.181454', '2024-07-17 10:55:28.181454')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 3 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 26', 183, 'won', 3, '2024-07-17 10:55:28.183970', '2024-07-17 10:55:28.183970')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 8 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 27', 258, 'lost', 8, '2024-07-17 10:55:28.186502', '2024-07-17 10:55:28.186502')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 2 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 28', 591, 'lost', 2, '2024-07-17 10:55:28.188992', '2024-07-17 10:55:28.188992')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY RAND() LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (0.0ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` WHERE `companies`.`id` = 4 LIMIT 1[0m
+  [1m[36mDeal Create (0.1ms)[0m  [1m[32mINSERT INTO `deals` (`name`, `amount`, `status`, `company_id`, `created_at`, `updated_at`) VALUES ('Deal 29', 482, 'pending', 4, '2024-07-17 10:55:28.191421', '2024-07-17 10:55:28.191421')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2024-07-17 12:55:38 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 279)
+  Rendered layout layouts/application.html.erb (Duration: 1330.4ms | Allocations: 127105)
+Completed 200 OK in 1469ms (Views: 1332.5ms | ActiveRecord: 0.0ms | Allocations: 412656)
+
+
+Started GET "/api/v1/companies" for 127.0.0.1 at 2024-07-17 12:55:40 +0200
+Processing by Api::V1::CompaniesController#index as */*
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY `companies`.`created_at` DESC[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.6ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 10[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.2ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 9[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 8[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 7[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 6[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 5[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 4[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 3[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 2[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 1[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+Completed 200 OK in 62ms (Views: 0.9ms | ActiveRecord: 5.3ms | Allocations: 28827)
+
+
+Started GET "/" for 127.0.0.1 at 2024-07-17 12:58:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 279)
+  Rendered layout layouts/application.html.erb (Duration: 57.1ms | Allocations: 23716)
+Completed 200 OK in 207ms (Views: 59.1ms | ActiveRecord: 0.0ms | Allocations: 308738)
+
+
+Started GET "/api/v1/companies" for 127.0.0.1 at 2024-07-17 12:58:28 +0200
+Processing by Api::V1::CompaniesController#index as */*
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT `companies`.* FROM `companies` ORDER BY `companies`.`created_at` DESC[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.3ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 10[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 9[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.3ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 8[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 7[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 6[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 5[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 4[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 3[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 2[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+  [1m[36mDeal Load (0.1ms)[0m  [1m[34mSELECT `deals`.* FROM `deals` WHERE `deals`.`company_id` = 1[0m
+  ↳ app/controllers/api/v1/companies_controller.rb:4:in `index'
+Completed 200 OK in 37ms (Views: 0.7ms | ActiveRecord: 5.3ms | Allocations: 27285)
+
+
