@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import qs from "query-string";
 
 export default () => {
   // List of fetched companies
@@ -9,16 +10,28 @@ export default () => {
   const [industry, setIndustry] = useState("");
   const [minEmployee, setMinEmployee] = useState("");
   const [minimumDealAmount, setMinimumDealAmount] = useState("");
+  const [limit, setLimit] = useState(10);
 
-  // Fetch companies from API
   useEffect(() => {
-    const url = "/api/v1/companies";
+    const params = {
+      name: companyName,
+      industry: industry,
+      employee_count: minEmployee,
+      deal_amount: minimumDealAmount,
+      limit: limit,
+    };
+
+    const queryParams = qs.stringify(params, {
+      skipEmptyString: true
+    });
+
+    const url = `/api/v1/companies?${queryParams}`;
     fetch(url)
       .then((res) => {
         return res.json();
       })
       .then((res) => setCompanies(res))
-  }, [])
+  }, [companyName, industry, minEmployee, minimumDealAmount, limit]);
 
   return (
     <div className="vw-100 primary-color d-flex align-items-center justify-content-center">
@@ -66,6 +79,19 @@ export default () => {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="row">
+          <div className="col-md-12 text-end">
+            <label htmlFor="limit">Show</label>
+            <select id="limit" className="form-control d-inline-block w-auto ms-2" value={limit} onChange={e => setLimit(e.target.value)}>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
