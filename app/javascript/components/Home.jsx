@@ -17,7 +17,7 @@ export default () => {
       name: companyName,
       industry: industry,
       employee_count: minEmployee,
-      deal_amount: minimumDealAmount,
+      deals_amount: minimumDealAmount,
       limit: limit,
     };
 

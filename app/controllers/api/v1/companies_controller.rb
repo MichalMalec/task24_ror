@@ -7,6 +7,6 @@ class Api::V1::CompaniesController < ApplicationController
   private
 
   def filter_params
-    params.permit(:name, :industry, :employee_count, :limit, :deal_amount)
+    params.permit(:name, :industry, :employee_count, :deals_amount, :limit)
   end
 end

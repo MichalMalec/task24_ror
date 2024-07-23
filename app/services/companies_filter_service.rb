@@ -17,6 +17,10 @@ class CompaniesFilterService
       if param(:employee_count)
         companies = companies.where('employee_count >= ?', param(:employee_count).to_i)
       end
+
+      if param(:deals_amount)
+        companies = companies.where('deals_amount >= ?', param(:deals_amount).to_i)
+      end
   
       if param(:limit)
         companies = companies.limit(param(:limit).to_i)
