@@ -1,12 +1,18 @@
-class Api::V1::CompaniesController < ApplicationController
-  def index
-    companies = ::CompaniesFilterService.new(filter_params).call
-    render json: companies.as_json(include: :deals)
-  end
+# frozen_string_literal: true
 
-  private
+module Api
+  module V1
+    class CompaniesController < ApplicationController
+      def index
+        companies = ::CompaniesFilterService.new(filter_params).call
+        render json: companies.as_json(include: :deals)
+      end
 
-  def filter_params
-    params.permit(:name, :industry, :employee_count, :deals_amount, :limit)
+      private
+
+      def filter_params
+        params.permit(:name, :industry, :employee_count, :deals_amount, :limit)
+      end
+    end
   end
 end
