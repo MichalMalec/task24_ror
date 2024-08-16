@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import qs from "query-string";
+
+const DEBOUNCE_DELAY = 1000;
 
 export default () => {
   // List of fetched companies
@@ -12,7 +14,10 @@ export default () => {
   const [minimumDealAmount, setMinimumDealAmount] = useState("");
   const [limit, setLimit] = useState(10);
 
-  useEffect(() => {
+  // Debounce timeout
+  const [debounceTimeout, setDebounceTimeout] = useState(DEBOUNCE_DELAY);
+
+  const fetchCompanies = useCallback(() => {
     const params = {
       name: companyName,
       industry: industry,
@@ -31,6 +36,22 @@ export default () => {
         return res.json();
       })
       .then((res) => setCompanies(res))
+  }, [companyName, industry, minEmployee, minimumDealAmount, limit]);
+
+  useEffect(() => {
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout);
+    }
+
+    const newTimeout = setTimeout(() => {
+      fetchCompanies();
+    }, DEBOUNCE_DELAY);
+
+    setDebounceTimeout(newTimeout);
+
+    return () => {
+      clearTimeout(newTimeout);
+    };
   }, [companyName, industry, minEmployee, minimumDealAmount, limit]);
 
   return (
